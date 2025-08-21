@@ -1,5 +1,9 @@
 # PostgreSQL con Docker
 
+## Link repositorio notas: 
+
+[Notas](https://github.com/Arenas07/posbre.git)
+
 ## Creacion del contenedor
 
 ```bash

@@ -4,7 +4,9 @@
 
 # **🏪 Gestión de Inventario para una Tienda de Tecnología**
 
+## Link repositorio notas: 
 
+[Notas](https://github.com/Arenas07/posbre.git)
 
 ## **📌 Contexto del Problema**
 
