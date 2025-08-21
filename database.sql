@@ -1,33 +1,33 @@
--- Active: 1755088819527@@127.0.0.1@5433@techzone
+-- Active: 1755088819527@@127.0.0.1@5433@examen_post
 
 
 CREATE TABLE Clientes(
-    id INTEGER NOT NULL PRIMARY KEY,
+    id SERIAL NOT NULL PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
     apellidos VARCHAR(255) NOT NULL,
-    correo VARCHAR(255) NOT NULL,
+    correo VARCHAR(255) NOT NULL UNIQUE,
     telefono VARCHAR(255) NOT NULL
 );
 
 
 CREATE TABLE Proveedores(
-    id INTEGER NOT NULL PRIMARY KEY,
+    id SERIAL NOT NULL PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
     correo VARCHAR(255) NOT NULL,
     telefono VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Categorias(
-    id INTEGER NOT NULL PRIMARY KEY,
+    id SERIAL NOT NULL PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Productos(
-    id INTEGER NOT NULL PRIMARY KEY,
-    proveedor_id INTEGER NOT NULL,
-    categoria_id INTEGER NOT NULL,
+    id SERIAL NOT NULL PRIMARY KEY,
+    proveedor_id SERIAL NOT NULL,
+    categoria_id SERIAL NOT NULL,
     nombre VARCHAR(255) NOT NULL,
-    precio DECIMAL(8, 2) NOT NULL,
+    precio DECIMAL(16, 2) NOT NULL,
     stock INTEGER NOT NULL,
     CONSTRAINT productos_stock_chk CHECK (stock >= 0),
     CONSTRAINT productos_precio_chk CHECK (precio >= 0),
@@ -43,8 +43,8 @@ CREATE TABLE Productos(
 );
 
 CREATE TABLE Ventas(
-    producto_id INTEGER NOT NULL,
-    cliente_id INTEGER NOT NULL,
+    producto_id SERIAL NOT NULL,
+    cliente_id SERIAL NOT NULL,
     cantidad INTEGER NOT NULL,
     fecha_venta DATE NOT NULL,
     total DECIMAL(16, 2) NOT NULL,
