@@ -38,9 +38,9 @@ WHERE fecha_venta BETWEEN '2025-08-14' AND '2025-09-01';
 
 -- 6️⃣ Identificar clientes que no han comprado en los últimos 6 meses.
 
-SELECT *
+SELECT cl.nombre, cl.apellidos, cl.correo, cl.telefono
 FROM Clientes cl
 JOIN Ventas v ON v.cliente_id = cl.id
-WHERE v.fecha_venta > NOW() - INTERVAL '1 months'
+WHERE v.fecha_venta < NOW() - INTERVAL '6 months'
 
 SELECT NOW() - INTERVAL '1 months';
